@@ -1,0 +1,16 @@
+services:
+  projeto-agendaapi-db:
+    image: postgres:16
+    container_name: projeto-agendaapi-postgres
+    restart: always
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: agendaapi
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - agendaapi-db-data:/var/lib/postgresql/data
+
+volumes:
+  agendaapi-db-data:
